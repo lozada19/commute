@@ -1,4 +1,10 @@
-NOMBRE DE MI PROYECTO
-Descripcion 
-Funcionalidad
-Estructura
+#NOMBRE DE MI PROYECTO
+Commute
+---
+#Descripcion 
+Es un mundo 2D
+---
+#Funcionalidad
+Un carro que esquiva obtaculos 
+---
+#Estructura
