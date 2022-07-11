@@ -7,6 +7,7 @@ const ctx = canvas.getContext("2d");
 const splashScreen = document.querySelector("#splash-screen")
 const startBoton = document.querySelector("#start")
 let game;
+const gameoverScreenDOM = document.querySelector("#gameover-screen")
 
 
 

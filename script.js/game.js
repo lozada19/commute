@@ -9,13 +9,46 @@ class Game {
         this.bg.src = "./imagen/background-1.png"
         this.cars = new Cars()
         this.cochesArr = []
+        this.isGameOver = true
     }
  // metodos del juego 
 
- automaticAddCoches = () => {
-     if (this.cochesArr.length === 0 || this.cochesArr[this.cochesArr.length -1].y < canvas.height / 2) {
+ removeCoches = () => {
+     console.log(this.cochesArr.length)
+     if (this.cochesArr[0].y + this.cochesArr[0].w < 0){
+         this.cochesArr.shift()
+     }
+ }
+ 
+ gameOver = () => {
+     this.isGameOver = false;
+     canvas.style.display = "none"
+     gameoverScreenDOM.style.display = "flex"
 
-        let randonPositionXLeft = Math.random() * 100
+
+ }
+
+ colicionCoches = () => {
+     this.cochesArr.forEach((eachCoches) => {
+
+        if (eachCoches.x < this.cars.x + this.cars.w &&
+            eachCoches.x + eachCoches.w > this.cars.x &&
+            eachCoches.y < this.cars.y + this.cars.h &&
+            eachCoches.h + eachCoches.y > this.cars.y) {
+                console.log("COLLISION")
+                this.gameOver() 
+
+            }
+           
+            
+            
+     })
+ }
+
+ automaticAddCoches = () => {
+     if (this.cochesArr.length  < 1 || this.cochesArr[this.cochesArr.length -1].y > canvas.height / 2) {
+
+        let randonPositionXLeft = Math.random() * (canvas.width - 150 &&   200)
 
         let newcochesLeft = new Coches(randonPositionXLeft, "/imagen/coche-verde.png")
         this.cochesArr.push(newcochesLeft)
@@ -36,11 +69,14 @@ class Game {
 
      // 2. movimientos y acciones de los elemetos 
      this.automaticAddCoches()
+     this.colicionCoches()
+
      
      this.cochesArr.forEach((eachCoches) => {
          eachCoches.movimientoCoches()
      })
     
+     this.removeCoches()
 
      // 3. dibujar los elemtos 
      ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height)

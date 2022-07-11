@@ -3,11 +3,11 @@ class Coches {
     constructor(xParam, srcParam){
         this.image = new Image()
         this.image.src = srcParam
-        this.x = xParam
-        this.y = 0 
+        this.x = xParam + 90
+        this.y = 0
         this.w = 50
         this.h = 60 
-        this.speed = 8
+        this.speed = 10
 
     }
 
@@ -16,7 +16,7 @@ class Coches {
     }
 
     movimientoCoches = () => {
-        this.y = this.y - this.speed
+        this.y = this.y + this.speed
     }
     
 }
