@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d");
 
 const splashScreen = document.querySelector("#splash-screen")
 const startBoton = document.querySelector("#start")
-
+let game;
 
 
 
@@ -19,9 +19,10 @@ const startGame = () => {
     splashScreen.style.display = "none"
     canvas.style.display = "block"
 
-    const game = new Game()
+    game = new Game()
     console.log(game)
     game.gameLoop()
+
 }
 
 
@@ -35,6 +36,10 @@ const startGame = () => {
 startBoton.addEventListener("click", startGame)
 
 //botones para manejar el carro 
+window.addEventListener("keydown", (event) => {
+    
+    game.cars.movimientoCars(event)
+  });
 
 
 
