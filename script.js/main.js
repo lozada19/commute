@@ -9,7 +9,7 @@ const startBoton = document.querySelector("#start")
 let game;
 const gameoverScreenDOM = document.querySelector("#gameover-screen")
 const restartBoton = document.querySelector("#restart")
-let vias1; 
+//let vias1; 
 
 
 
@@ -22,8 +22,8 @@ const startGame = () => {
     gameoverScreenDOM.style.display = "none";
     canvas.style.display = "block"
 
-    game = new Game()
-    console.log(game)
+    game = new Game(canvas.height)
+   // console.log(game)
     game.gameLoop()
 
 }

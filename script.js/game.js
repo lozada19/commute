@@ -1,6 +1,6 @@
 
 class Game {
-    constructor () {
+    constructor (heightParam) {
         // propiedades
         // el carro
         // velosidad 
@@ -12,7 +12,7 @@ class Game {
 
         this.isGameOver = true
         this.viaArr = []
-        this.viaArr.push(new via(),)
+        this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
     }
  // metodos del juego 
 
@@ -38,13 +38,10 @@ class Game {
             eachCoches.x + eachCoches.w > this.cars.x &&
             eachCoches.y < this.cars.y + this.cars.h &&
             eachCoches.h + eachCoches.y > this.cars.y) {
-                console.log("COLLISION")
+                //console.log("COLLISION")
                 this.gameOver() 
 
-            }
-           
-            
-            
+            }   
      })
  }
 
