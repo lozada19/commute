@@ -2,7 +2,7 @@ class Cars {
     constructor() {
         //propiedades del carro
         this.image = new Image()
-        this.image.src = "./imagen/ezgif.com-gif-maker (2).png"
+        this.image.src = "./imagen/coche-rojo.png"
         this.x = 90
         this.y = 520
         this.w = 40
