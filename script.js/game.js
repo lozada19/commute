@@ -9,7 +9,10 @@ class Game {
         this.bg.src = "./imagen/background-1.png"
         this.cars = new Cars()
         this.cochesArr = []
+
         this.isGameOver = true
+        this.viaArr = []
+        this.viaArr.push(new via(),)
     }
  // metodos del juego 
 
@@ -70,23 +73,30 @@ class Game {
      // 2. movimientos y acciones de los elemetos 
      this.automaticAddCoches()
      this.colicionCoches()
-
-     
      this.cochesArr.forEach((eachCoches) => {
          eachCoches.movimientoCoches()
      })
-    
-     this.removeCoches()
+    this.removeCoches()
+     //this.via.movimientoVia()
+
+     this.viaArr.forEach((eachVias) =>{
+         eachVias.movimientoVia()
+     })
+
 
      // 3. dibujar los elemtos 
-     ctx.drawImage(this.bg, 0, 0, canvas.width, canvas.height)
+
+     this.viaArr.forEach((eachVias) =>{
+        eachVias.drawVia()
+    })
+
      this.cars.drawCars()
+     
      this.cochesArr.forEach((eachCoches) => {
       eachCoches.drawCoches()
      })
 
-
-
+     
      //  4. efecto de recursion
 
      requestAnimationFrame(this.gameLoop)
