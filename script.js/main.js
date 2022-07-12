@@ -9,6 +9,7 @@ const startBoton = document.querySelector("#start")
 let game;
 const gameoverScreenDOM = document.querySelector("#gameover-screen")
 const restartBoton = document.querySelector("#restart")
+//const pauseBoton = document.querySelector("#pause")
 //let vias1; 
 
 
@@ -28,6 +29,15 @@ const startGame = () => {
 
 }
 
+/*const pauseGame = () => {
+    if (game.isGamePaused === false) {
+        game.isGamePaused = true
+      } else {
+        game.isGamePaused = false
+        game.gameLoop()
+      }
+}*/
+
 
 
 
@@ -38,6 +48,7 @@ const startGame = () => {
 
 startBoton.addEventListener("click", startGame);
 restartBoton.addEventListener("click", startGame)
+//pauseBoton.addEventListener("click", pauseGame)
 
 
 //botones para manejar el carro 

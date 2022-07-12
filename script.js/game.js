@@ -9,8 +9,8 @@ class Game {
         this.bg.src = "./imagen/background-1.png"
         this.cars = new Cars()
         this.cochesArr = []
-
-        this.isGameOver = true
+        this.muroArr = []
+        this.isGameOn = true
         this.viaArr = []
         this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
     }
@@ -24,9 +24,19 @@ class Game {
  }
  
  gameOver = () => {
-     this.isGameOver = false;
+     this.isGameOn = false;
      canvas.style.display = "none"
      gameoverScreenDOM.style.display = "flex"
+
+
+ }
+
+ colicionMuro = () => {
+     if (this.x + this.cars > canvas.height + 30){
+        // this.gameOver()
+     } else if (this.x + this.cars > canvas.height - 30){
+        //this.gameOver()    
+     }
 
 
  }
@@ -38,7 +48,7 @@ class Game {
             eachCoches.x + eachCoches.w > this.cars.x &&
             eachCoches.y < this.cars.y + this.cars.h &&
             eachCoches.h + eachCoches.y > this.cars.y) {
-                //console.log("COLLISION")
+                console.log("COLLISION")
                 this.gameOver() 
 
             }   
@@ -96,7 +106,10 @@ class Game {
      
      //  4. efecto de recursion
 
-     requestAnimationFrame(this.gameLoop)
+     
+     if (this.isGameOn === true){
+        requestAnimationFrame(this.gameLoop)
+     } 
 
 
 

@@ -3,7 +3,7 @@ class Cars {
         //propiedades del carro
         this.image = new Image()
         this.image.src = "./imagen/coche-rojo.png"
-        this.x = 90
+        this.x = 150
         this.y = 520
         this.w = 40
         this.h = 60
