@@ -32,13 +32,14 @@ class Game {
  }
 
  colicionMuro = () => {
-     if (this.x + this.cars > canvas.height + 30){
-        // this.gameOver()
-     } else if (this.x + this.cars > canvas.height - 30){
-        //this.gameOver()    
+     if(this.cars.x + this.cars.w >= canvas.width - 30){
+         this.gameOver()
+         console.log("muro")
+     }else if (this.cars.x <= 30){
+         console.log("muro")
+        this.gameOver()
      }
-
-
+    
  }
 
  colicionCoches = () => {
@@ -89,6 +90,8 @@ class Game {
      this.viaArr.forEach((eachVias) =>{
          eachVias.movimientoVia()
      })
+
+     this.colicionMuro()
 
 
      // 3. dibujar los elemtos 
