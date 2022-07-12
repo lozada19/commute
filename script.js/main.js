@@ -9,6 +9,7 @@ const startBoton = document.querySelector("#start")
 let game;
 const gameoverScreenDOM = document.querySelector("#gameover-screen")
 const restartBoton = document.querySelector("#restart")
+const score = document.querySelector("#score")
 //const pauseBoton = document.querySelector("#pause")
 //let vias1; 
 

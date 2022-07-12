@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: black;
+    background-color:black;
   }
   
   #my-canvas {
@@ -30,3 +30,14 @@ body {
     display: none 
   }
 
+ #score {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  font-size: 20px;
+  margin-top: -199px;
+  border-radius: 5px; 
+  padding-left: 30px;
+  padding-right: 30px;
+
+ }

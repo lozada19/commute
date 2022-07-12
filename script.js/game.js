@@ -13,8 +13,18 @@ class Game {
         this.isGameOn = true
         this.viaArr = []
         this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
+        this.scoreArr =  []
     }
  // metodos del juego 
+
+/*score = () => {
+     for(let i = 0; i < this.cochesArr.length; i++){
+         //cada vez que un coche salga del canvas
+         this.cochesArr[i].y > canvas.height
+     } if (){
+
+     }
+    }*/
 
  removeCoches = () => {
      console.log(this.cochesArr.length)
@@ -36,11 +46,11 @@ class Game {
          this.gameOver()
          console.log("muro")
      }else if (this.cars.x <= 30){
-         console.log("muro")
-        this.gameOver()
+       //  console.log("muro")
+         this.gameOver()
      }
-    
- }
+    }
+ 
 
  colicionCoches = () => {
      this.cochesArr.forEach((eachCoches) => {
@@ -57,7 +67,7 @@ class Game {
  }
 
  automaticAddCoches = () => {
-     if (this.cochesArr.length  < 1 || this.cochesArr[this.cochesArr.length -1].y > canvas.height / 2) {
+     if (this.cochesArr.length  < 1|| this.cochesArr[this.cochesArr.length -1].y > canvas.height / 2) {
 
         let randonPositionXLeft = Math.random() * (canvas.width - 150 &&   200)
 
@@ -122,4 +132,4 @@ class Game {
  // colicion carro a carro
  // efecto de gameover 
 
-}
+ }

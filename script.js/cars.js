@@ -21,6 +21,9 @@ class Cars {
     }
 
    movimientoCars = (event) => {
+
+
+    
     if (( event.code === "ArrowLeft") && this.x > 0) {
         // aqui la izquierda
         this.x = this.x - this.speed;

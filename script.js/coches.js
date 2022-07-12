@@ -5,9 +5,9 @@ class Coches {
         this.image.src = srcParam
         this.x = xParam + 90
         this.y = 0
-        this.w = 50
+        this.w = 40
         this.h = 60 
-        this.speed = 8
+        this.speed = 5
 
     }
 
