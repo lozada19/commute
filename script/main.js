@@ -11,6 +11,12 @@ const gameoverScreenDOM = document.querySelector("#gameover-screen")
 const restartBoton = document.querySelector("#restart")
 const gameScreen = document.querySelector("#game-screen")
 const scoreDom = document.querySelector(".score")
+
+scoreDom.innerHTML = 0
+const gameAudio = new Audio ("./audio/bomberman-password.mp3") 
+gameAudio.volume = 0.1;
+gameAudio.preload = "auto";
+gameAudio.load(); 
 //const pauseBoton = document.querySelector("#pause")
 //let vias1; 
 
@@ -25,27 +31,23 @@ const startGame = () => {
     gameoverScreenDOM.style.display = "none";
     canvas.style.display = "block"
     gameScreen.style.display = "block"
-    scoreDom.innerText = 0
+    scoreDom.innerHTML = 0
+
+    gameAudio.load()
+    gameAudio.play()
+    gameAudio.loop = true;
     
 
 
     game = new Game(canvas.height)
-    playAudio()
+   
    // console.log(game)
     game.gameLoop()
 
+
 }
 
-const playAudio = () => {
-  game.gameAudio.play()
-  game.playSonido = true
-  
-}
 
-const stopAudio = () => {
-  game.gameAudio.play()
-  game.playSonido = false
-}
 
 
 /*const pauseGame = () => {

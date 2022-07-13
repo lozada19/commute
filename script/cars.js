@@ -10,6 +10,8 @@ class Cars {
        // this.direccionX = 1
        // this.direccionY = 1
         this.speed = 30
+        this.vidas = 2
+
 
     }
 

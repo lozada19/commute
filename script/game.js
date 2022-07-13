@@ -13,13 +13,13 @@ class Game {
         this.isGameOn = true
         this.viaArr = []
         this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
-        this.score = 0
-        this.gameAudio = new Audio ("./audio/bomberman-password.mp3")
+        
+         
     }
  // metodos del juego 
 
 
-updataScore = () => {
+/*updataScore = () => {
      for(let i = 0; i < this.cochesArr.length; i++){
          //cada vez que un coche salga del canvas
         // si el coche sale del canvas
@@ -32,26 +32,29 @@ updataScore = () => {
          } 
      } 
      
-    }
+    }*/
+
+
+
 
  removeCoches = () => {
      console.log(this.cochesArr.length)
-     if (this.cochesArr[0].y + this.cochesArr[0].w < 0){
+     if (this.cochesArr[0].y + this.cochesArr[0].h > canvas.height){
          this.cochesArr.shift()
+        scoreDom.innerHTML = Number(scoreDom.innerHTML) + 10
+         
      }
  }
  
  gameOver = () => {
+     
+     if(this.cars.vidas === 0){
      this.isGameOn = false;
      canvas.style.display = "none"
      gameoverScreenDOM.style.display = "flex"
      gameScreen.style.display = "none"
-     this.gameAudio.pause()
-     this.gameAudio.volume = 0.2
-     
-  
-
-
+     gameAudio.pause()
+     }
  }
 
  colicionMuro = () => {
@@ -66,14 +69,17 @@ updataScore = () => {
  
 
  colicionCoches = () => {
-     this.cochesArr.forEach((eachCoches) => {
+     this.cochesArr.forEach((eachCoches, indice) => {
 
         if (eachCoches.x < this.cars.x + this.cars.w &&
             eachCoches.x + eachCoches.w > this.cars.x &&
             eachCoches.y < this.cars.y + this.cars.h &&
             eachCoches.h + eachCoches.y > this.cars.y) {
                 console.log("COLLISION")
-                this.gameOver() 
+                this.cars.vidas--
+
+                this.cochesArr.splice(indice,1)
+
 
             }   
      })
@@ -108,7 +114,7 @@ updataScore = () => {
          eachCoches.movimientoCoches()
      })
     this.removeCoches()
-    this.updataScore()
+    //this.updataScore()
      //this.via.movimientoVia()
 
      this.viaArr.forEach((eachVias) =>{
@@ -116,6 +122,10 @@ updataScore = () => {
      })
 
      this.colicionMuro()
+
+     this.gameOver()
+
+     
 
 
      // 3. dibujar los elemtos 
