@@ -46,6 +46,8 @@ const stopAudio = () => {
   game.gameAudio.play()
   game.playSonido = false
 }
+
+
 /*const pauseGame = () => {
     if (game.isGamePaused === false) {
         game.isGamePaused = true

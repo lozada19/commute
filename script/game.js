@@ -46,6 +46,9 @@ updataScore = () => {
      canvas.style.display = "none"
      gameoverScreenDOM.style.display = "flex"
      gameScreen.style.display = "none"
+     this.gameAudio.pause()
+     this.gameAudio.volume = 0.2
+     
   
 
 
