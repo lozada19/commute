@@ -37,6 +37,8 @@ class Game {
      this.isGameOn = false;
      canvas.style.display = "none"
      gameoverScreenDOM.style.display = "flex"
+     gameScreen.style.display = "none"
+  
 
 
  }
@@ -67,7 +69,7 @@ class Game {
  }
 
  automaticAddCoches = () => {
-     if (this.cochesArr.length  < 1|| this.cochesArr[this.cochesArr.length -1].y > canvas.height / 2) {
+     if (this.cochesArr.length  < 1 || this.cochesArr[this.cochesArr.length -1].y > canvas.height / 2) {
 
         let randonPositionXLeft = Math.random() * (canvas.width - 150 &&   200)
 

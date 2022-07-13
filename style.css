@@ -26,17 +26,17 @@ body {
     margin: 50px;
   }
   
-  #my-canvas, #gameover-screen {
+  #game-screen, #gameover-screen {
     display: none 
   }
 
  #score {
   background-color: white;
   color: black;
-  padding: 15px;
+  padding: 1px;
   font-size: 20px;
-  margin-top: -199px;
-  border-radius: 5px; 
+  margin-top: 800px;
+  border-radius: 3px; 
   padding-left: 30px;
   padding-right: 30px;
 
