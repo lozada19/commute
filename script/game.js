@@ -71,7 +71,7 @@ class Game {
 
         let randonPositionXLeft = Math.random() * (canvas.width - 150 &&   200)
 
-        let newcochesLeft = new Coches(randonPositionXLeft, "/imagen/coche-verde.png")
+        let newcochesLeft = new Coches(randonPositionXLeft, "./imagen/coche-verde.png")
         this.cochesArr.push(newcochesLeft)
 
         //let distanceCoches = newcochesLeft.w + 30
