@@ -14,19 +14,22 @@ class Game {
         this.viaArr = []
         this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
         this.score = 0
+        this.gameAudio = new Audio ("./audio/bomberman-password.mp3")
     }
  // metodos del juego 
+
 
 updataScore = () => {
      for(let i = 0; i < this.cochesArr.length; i++){
          //cada vez que un coche salga del canvas
         // si el coche sale del canvas
-        if ( this.cochesArr[i].y > canvas.height){
+        if ( this.cochesArr[i].y  > canvas.height + this.cochesArr[i].h){
 
             console.log("sale del canvas")
              this.score ++
              scoreDom.innerText = this.score
-         }
+             
+         } 
      } 
      
     }

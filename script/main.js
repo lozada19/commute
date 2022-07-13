@@ -30,11 +30,22 @@ const startGame = () => {
 
 
     game = new Game(canvas.height)
+    playAudio()
    // console.log(game)
     game.gameLoop()
 
 }
 
+const playAudio = () => {
+  game.gameAudio.play()
+  game.playSonido = true
+  
+}
+
+const stopAudio = () => {
+  game.gameAudio.play()
+  game.playSonido = false
+}
 /*const pauseGame = () => {
     if (game.isGamePaused === false) {
         game.isGamePaused = true
