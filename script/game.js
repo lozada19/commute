@@ -14,7 +14,7 @@ class Game {
         this.viaArr = []
         this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
         
-         
+       
     }
  // metodos del juego 
 
@@ -39,7 +39,7 @@ class Game {
 
  removeCoches = () => {
      console.log(this.cochesArr.length)
-     if (this.cochesArr[0].y + this.cochesArr[0].h > canvas.height){
+     if (this.cochesArr[0].y  > canvas.height ){
          this.cochesArr.shift()
         scoreDom.innerHTML = Number(scoreDom.innerHTML) + 10
          
@@ -48,13 +48,13 @@ class Game {
  
  gameOver = () => {
      
-     if(this.cars.vidas === 0){
+   
      this.isGameOn = false;
      canvas.style.display = "none"
      gameoverScreenDOM.style.display = "flex"
      gameScreen.style.display = "none"
      gameAudio.pause()
-     }
+     
  }
 
  colicionMuro = () => {
@@ -76,9 +76,10 @@ class Game {
             eachCoches.y < this.cars.y + this.cars.h &&
             eachCoches.h + eachCoches.y > this.cars.y) {
                 console.log("COLLISION")
-                this.cars.vidas--
+                //this.cars.vidas--
+                this.gameOver()
 
-                this.cochesArr.splice(indice,1)
+              // this.cochesArr.splice(indice,1)
 
 
             }   
@@ -123,7 +124,7 @@ class Game {
 
      this.colicionMuro()
 
-     this.gameOver()
+     
 
      
 
