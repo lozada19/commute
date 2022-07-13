@@ -10,7 +10,7 @@ let game;
 const gameoverScreenDOM = document.querySelector("#gameover-screen")
 const restartBoton = document.querySelector("#restart")
 const gameScreen = document.querySelector("#game-screen")
-const score = document.querySelector("#score")
+const scoreDom = document.querySelector(".score")
 //const pauseBoton = document.querySelector("#pause")
 //let vias1; 
 
@@ -25,6 +25,7 @@ const startGame = () => {
     gameoverScreenDOM.style.display = "none";
     canvas.style.display = "block"
     gameScreen.style.display = "block"
+    scoreDom.innerText = 0
     
 
 

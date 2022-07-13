@@ -13,18 +13,23 @@ class Game {
         this.isGameOn = true
         this.viaArr = []
         this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
-        this.scoreArr =  []
+        this.score = 0
     }
  // metodos del juego 
 
-/*score = () => {
+updataScore = () => {
      for(let i = 0; i < this.cochesArr.length; i++){
          //cada vez que un coche salga del canvas
-         this.cochesArr[i].y > canvas.height
-     } if (){
+        // si el coche sale del canvas
+        if ( this.cochesArr[i].y > canvas.height){
 
-     }
-    }*/
+            console.log("sale del canvas")
+             this.score ++
+             scoreDom.innerText = this.score
+         }
+     } 
+     
+    }
 
  removeCoches = () => {
      console.log(this.cochesArr.length)
@@ -69,7 +74,7 @@ class Game {
  }
 
  automaticAddCoches = () => {
-     if (this.cochesArr.length  < 1 || this.cochesArr[this.cochesArr.length -1].y > canvas.height / 2) {
+     if (this.cochesArr.length  < 1 || this.cochesArr[this.cochesArr.length -1].y > canvas.height * 0.4) {
 
         let randonPositionXLeft = Math.random() * (canvas.width - 150 &&   200)
 
@@ -97,6 +102,7 @@ class Game {
          eachCoches.movimientoCoches()
      })
     this.removeCoches()
+    this.updataScore()
      //this.via.movimientoVia()
 
      this.viaArr.forEach((eachVias) =>{
