@@ -1,9 +1,9 @@
 
 # Commute
 
-## Description
+## Descripción
 
- Commute es un juego en 2D en el que el jugador tiene que mover el coche de izquierda a derecha para esquivar los coches que vienen de la parte superior hasta el inferior. El juego termina cuando colicionas mas de dos veces con los coches y mientras esquivas mas coches ganas mas puntos 
+ Commute es un juego donde el jugador tiene que mover el coche de izquierda a derecha para esquivar los coches que vienen de la parte superior hasta el inferior. El juego termina cuando colicionas mas de dos veces con los coches y mientras esquivas mas coches ganas mas puntos. 
 
 
 ## MVP (DOM - CANVAS)
@@ -13,7 +13,7 @@
 - Pierde vida al colicionar
 
 
-## Data Structure
+## Estructura 
 
 # main.js
 
@@ -67,11 +67,26 @@
 - drawVias(){} 
 - movimientoVias(){}
 
-## States y States Transitions
+## Estados 
 
 - splashScreen
 - gameScreen
 - gameOverScreen
+
+## Enlaces
+
+### Trello
+[URL del enlace](https://trello.com/b/FLNOqaOu/proyecto-1-juego)
+
+### Git
+URL para el repositorio del proyecto y la implementación
+[Enlace Repo](https://github.com/rebloza/commute)
+[Despliegue de enlace](https://rebloza.github.io/commute/)
+
+### Diapositivas
+URL para la presentación del proyecto (diapositivas)
+[Enlace Slides.com]()
+
 
 
 

@@ -1,183 +1,110 @@
-
 class Game {
-    constructor (heightParam) {
-        // propiedades
-        // el carro
-        // velosidad 
-        //imagen de fondo 
-        this.bg = new Image()
-        this.bg.src = "./imagen/background-1.png"
-        this.cars = new Cars()
-        this.cochesArr = []
-        this.muroArr = []
-        this.isGameOn = true
-        this.viaArr = []
-        this.viaArr.push(new via(0,heightParam),new via( - heightParam, heightParam))
-        
-       
+  constructor(heightParam) {
+    this.bg = new Image();
+    this.bg.src = "./imagen/background-1.png";
+    this.cars = new Cars();
+    this.cochesArr = [];
+    this.muroArr = [];
+    this.isGameOn = true;
+    this.viaArr = [];
+    this.viaArr.push(
+      new via(0, heightParam),
+      new via(-heightParam, heightParam)
+    );
+  }
+  // metodos del juego
+
+  removeCoches = () => {
+    console.log(this.cochesArr.length);
+    if (this.cochesArr[0].y > canvas.height) {
+      this.cochesArr.shift();
+      scoreDom.innerHTML = Number(scoreDom.innerHTML) + 10;
     }
- // metodos del juego 
+  };
 
+  gameOver = () => {
+    this.isGameOn = false;
+    canvas.style.display = "none";
+    gameoverScreenDOM.style.display = "flex";
+    gameScreen.style.display = "none";
+    gameAudio.pause();
+  };
 
-/*updataScore = () => {
-     for(let i = 0; i < this.cochesArr.length; i++){
-         //cada vez que un coche salga del canvas
-        // si el coche sale del canvas
-        if ( this.cochesArr[i].y  > canvas.height + this.cochesArr[i].h){
+  colicionCoches = () => {
+    this.cochesArr.forEach((eachCoches, indice) => {
+      if (
+        eachCoches.x < this.cars.x + this.cars.w &&
+        eachCoches.x + eachCoches.w > this.cars.x &&
+        eachCoches.y < this.cars.y + this.cars.h &&
+        eachCoches.h + eachCoches.y > this.cars.y
+      ) {
+        console.log("COLLISION");
 
-            console.log("sale del canvas")
-             this.score ++
-             scoreDom.innerText = this.score
-             
-         } 
-     } 
-     
-    }*/
+        //quitar vidas
+        //si la vida es mayor a 0 se le resta
+        // si la vidad es igual a 0 gameOver
 
-  /*  quitarVidas = () => {
-        if(this.vidas === 3){
-
-            this.vidas -1
-        }else if(){
-
+        if (this.cars.vidas > 0) {
+          this.cars.vidas = this.cars.vidas - 1;
+          lifeDom.innerHTML = Number(lifeDom.innerHTML) - 1;
+        } else if (this.cars.vidas === 0) {
+          this.gameOver();
         }
-    */ 
 
+        // indice cantidad posicion a eliminar
+        this.cochesArr.splice(indice, 1);
+      }
+    });
+  };
 
+  automaticAddCoches = () => {
+    if (
+      this.cochesArr.length < 1 ||
+      this.cochesArr[this.cochesArr.length - 1].y > canvas.height * 0.4
+    ) {
+      let randonPositionXLeft = Math.random() * (canvas.width - 150 && 200);
 
-
- removeCoches = () => {
-     console.log(this.cochesArr.length)
-     if (this.cochesArr[0].y  > canvas.height ){
-         this.cochesArr.shift()
-        scoreDom.innerHTML = Number(scoreDom.innerHTML) + 10
-         
-     }
- }
- 
- gameOver = () => {
-     
-     this.isGameOn = false;
-     canvas.style.display = "none"
-     gameoverScreenDOM.style.display = "flex"
-     gameScreen.style.display = "none"
-     gameAudio.pause()
-     
-     
- }
-
- colicionMuro = () => {
-     if(this.cars.x + this.cars.w >= canvas.width - 30){
-
-         //this.gameOver()
-         console.log("muro")
-     }else if (this.cars.x <= 30){
-       //  console.log("muro")
-        // this.gameOver()
-     }
+      let newcochesLeft = new Coches(
+        randonPositionXLeft,
+        "./imagen/coche-verde.png"
+      );
+      this.cochesArr.push(newcochesLeft);
     }
- 
+  };
 
- colicionCoches = () => {
-     this.cochesArr.forEach((eachCoches,indice) => {
+  gameLoop = () => {
+    console.log("funciona");
+    // 1. limpiar el canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (eachCoches.x < this.cars.x + this.cars.w &&
-            eachCoches.x + eachCoches.w > this.cars.x &&
-            eachCoches.y < this.cars.y + this.cars.h &&
-            eachCoches.h + eachCoches.y > this.cars.y) {
-                console.log("COLLISION")
-                //this.cars.vidas--
-                //quitar vidas
-                //si la vida es mayor a 0 se le resta 
-                // si la vidad es igual a 0 gameOver
+    // 2. movimientos y acciones de los elemetos
+    this.automaticAddCoches();
+    this.colicionCoches();
+    this.cochesArr.forEach((eachCoches) => {
+      eachCoches.movimientoCoches();
+    });
+    this.removeCoches();
 
-                if( this.cars.vidas > 0){
-                    this.cars.vidas = this.cars.vidas -1
-                    lifeDom.innerHTML = Number(lifeDom.innerHTML) -1
-                } else if ( this.cars.vidas === 0){
-                    
-                    this.gameOver()
-                 }
-                
-               // indice cantidad posicion a eliminar
-               this.cochesArr.splice(indice,1)
-               
-               
+    this.viaArr.forEach((eachVias) => {
+      eachVias.movimientoVia();
+    });
 
+    // 3. dibujar los elemtos
 
-            }   
-     })
- }
+    this.viaArr.forEach((eachVias) => {
+      eachVias.drawVia();
+    });
 
- automaticAddCoches = () => {
-     if (this.cochesArr.length  < 1 || this.cochesArr[this.cochesArr.length -1].y > canvas.height * 0.4) {
+    this.cars.drawCars();
 
-        let randonPositionXLeft = Math.random() * (canvas.width - 150 &&   200)
+    this.cochesArr.forEach((eachCoches) => {
+      eachCoches.drawCoches();
+    });
 
-        let newcochesLeft = new Coches(randonPositionXLeft, "./imagen/coche-verde.png")
-        this.cochesArr.push(newcochesLeft)
+    //  4. efecto de recursion
 
-        //let distanceCoches = newcochesLeft.w + 30
-        //let randonPositionXRigth = randonPositionXRigth + distanceCoches
-
-        //let newCochesRigth = new Coches(randonPositionXRigth, "/imagen/coche-verde.png")
-       // this.cochesArr.push(newCochesRigth)
-     }
- }
-
- gameLoop = () => {
-    
-     console.log("funciona")
-     // 1. limpiar el canvas 
-     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-     // 2. movimientos y acciones de los elemetos 
-     this.automaticAddCoches()
-     this.colicionCoches()
-     this.cochesArr.forEach((eachCoches) => {
-         eachCoches.movimientoCoches()
-     })
-    this.removeCoches()
-    //this.updataScore()
-     //this.via.movimientoVia()
-
-     this.viaArr.forEach((eachVias) =>{
-         eachVias.movimientoVia()
-     })
-
-     this.colicionMuro()
-
-     
-
-     
-
-
-     // 3. dibujar los elemtos 
-
-     this.viaArr.forEach((eachVias) =>{
-        eachVias.drawVia()
-    })
-
-     this.cars.drawCars()
-     
-     this.cochesArr.forEach((eachCoches) => {
-      eachCoches.drawCoches()
-     })
-
-     
-     //  4. efecto de recursion
-
-     
-     if (this.isGameOn === true){
-        requestAnimationFrame(this.gameLoop)
-     } 
-
-
-
- }
- 
- // carros aleatoros 
- // colicion carro a carro
- // efecto de gameover 
-
- }
+    if (this.isGameOn === true) {
+      requestAnimationFrame(this.gameLoop);
+    }
+  };
+}
