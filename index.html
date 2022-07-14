@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" >
-</head>
-<body>
-
-    <div class="container">
-
-   
-
-        <!-- SPLASH SCREEN -->
-        <div id="splash-screen" class="container">
-           
-            <img src="./imagen/pantalla-inicio.png" width="400" height="600" >
-            <p id="insructions">
-              Instructions <br>
-              Dodge the green car<br>
-              Earn points<br>
-            </p>
-          <button id="start">Start!</button>
-          
-  
-        </div>
-
-       
-        
-        <!-- GAME SCREEN -->
-        
-        <div id="game-screen">
-          <canvas id="canvas" width="400" height="600"></canvas>
-          <p id="score">Score:<span class="score">0</span></p>
-          <p id="life">life:<span class="life">2</span></p>
-        </div>
-        
-        <!-- <button id="pause">||</button> -->
-       
-        
-        <!-- GAME OVER SCREEN -->
-        <div id="gameover-screen"   class="container">
-          <img src="./imagen/Commute (6).png" width="400" height="600" >
-          <button id="restart">Play Again!</button>
-        </div>
-    
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+      <img src="./imagen/pantalla-inicio.png" width="400" height="600" />
+      <p id="insructions">
+        Instructions <br />
+        Dodge the green car<br />
+        Earn points<br />
+      </p>
+      <div class="imagenes">
+        <img class="imagen2" src="./imagen/flechaIzquierdaSticker.png" />
+        <img class="imagen1" src="./imagen/flechaDerechaSticker.png" />
       </div>
 
-    
+      <button id="start">Start!</button>
+    </div>
+
+    <!-- GAME SCREEN -->
+
+    <div id="game-screen">
+      <canvas id="canvas" width="400" height="600"></canvas>
+      <div id="score-life">
+        <p id="score">Score:<span class="score">0</span></p>
+        <p id="life">life:<span class="life">2</span></p>
+      </div>
+    </div>
+
+    <!-- <button id="pause">||</button> -->
+
+    <!-- GAME OVER SCREEN -->
+    <div id="gameover-screen">
+      <img src="./imagen/Commute (6).png" width="400" height="600" />
+      <button id="restart">Play Again!</button>
+    </div>
+
     <script src="./script/main.js"></script>
 
     <script src="./script/game.js"></script>
     <script src="./script/cars.js"></script>
     <script src="./script/coches.js"></script>
     <script src="./script/via.js"></script>
-    
-</body>
+  </body>
 </html>
