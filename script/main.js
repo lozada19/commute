@@ -11,6 +11,7 @@ const gameoverScreenDOM = document.querySelector("#gameover-screen")
 const restartBoton = document.querySelector("#restart")
 const gameScreen = document.querySelector("#game-screen")
 const scoreDom = document.querySelector(".score")
+const lifeDom = document.querySelector(".life")
 
 scoreDom.innerHTML = 0
 const gameAudio = new Audio ("./audio/bomberman-password.mp3") 
@@ -32,6 +33,7 @@ const startGame = () => {
     canvas.style.display = "block"
     gameScreen.style.display = "block"
     scoreDom.innerHTML = 0
+    lifeDom.innerHTML = 2
 
     gameAudio.load()
     gameAudio.play()

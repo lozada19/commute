@@ -26,10 +26,10 @@ class Cars {
 
 
     
-    if (( event.code === "ArrowLeft") && this.x > 0) {
+    if (( event.code === "ArrowLeft") && this.x > 80) {
         // aqui la izquierda
         this.x = this.x - this.speed;
-      } else if (( event.code === "ArrowRight") && this.x + this.w < canvas.width) {
+      } else if (( event.code === "ArrowRight") && this.x + this.w < canvas.width -80) {
         // aqui la derecha
         this.x = this.x + this.speed;
       }

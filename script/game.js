@@ -34,6 +34,15 @@ class Game {
      
     }*/
 
+  /*  quitarVidas = () => {
+        if(this.vidas === 3){
+
+            this.vidas -1
+        }else if(){
+
+        }
+    */ 
+
 
 
 
@@ -55,21 +64,23 @@ class Game {
      gameScreen.style.display = "none"
      gameAudio.pause()
      
+     
  }
 
  colicionMuro = () => {
      if(this.cars.x + this.cars.w >= canvas.width - 30){
-         this.gameOver()
+
+         //this.gameOver()
          console.log("muro")
      }else if (this.cars.x <= 30){
        //  console.log("muro")
-         this.gameOver()
+        // this.gameOver()
      }
     }
  
 
  colicionCoches = () => {
-     this.cochesArr.forEach((eachCoches, indice) => {
+     this.cochesArr.forEach((eachCoches,indice) => {
 
         if (eachCoches.x < this.cars.x + this.cars.w &&
             eachCoches.x + eachCoches.w > this.cars.x &&
@@ -77,9 +88,22 @@ class Game {
             eachCoches.h + eachCoches.y > this.cars.y) {
                 console.log("COLLISION")
                 //this.cars.vidas--
-                this.gameOver()
+                //quitar vidas
+                //si la vida es mayor a 0 se le resta 
+                // si la vidad es igual a 0 gameOver
 
-              // this.cochesArr.splice(indice,1)
+                if( this.cars.vidas > 0){
+                    this.cars.vidas = this.cars.vidas -1
+                    lifeDom.innerHTML = Number(lifeDom.innerHTML) -1
+                } else if ( this.cars.vidas === 0){
+                    
+                    this.gameOver()
+                 }
+                
+               // indice cantidad posicion a eliminar
+               this.cochesArr.splice(indice,1)
+               
+               
 
 
             }   
