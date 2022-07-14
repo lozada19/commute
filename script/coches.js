@@ -6,7 +6,7 @@ class Coches {
     this.y = 0;
     this.w = 40;
     this.h = 60;
-    this.speed = 4;
+    this.speed = 5;
   }
 
   drawCoches = () => {

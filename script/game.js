@@ -60,7 +60,7 @@ class Game {
   automaticAddCoches = () => {
     if (
       this.cochesArr.length < 1 ||
-      this.cochesArr[this.cochesArr.length - 1].y > canvas.height * 0.4
+      this.cochesArr[this.cochesArr.length - 1].y > canvas.height * 0.5
     ) {
       let randonPositionXLeft = Math.random() * (canvas.width - 150 && 200);
 

@@ -85,7 +85,7 @@ URL para el repositorio del proyecto y la implementación
 
 ### Diapositivas
 URL para la presentación del proyecto (diapositivas)
-[Enlace Slides.com]()
+[Enlace Slides.com](https://docs.google.com/presentation/d/1EqdsJ_WwPk03iVnPc5gkpjMrfDzLPiar9ZWddtV9ZKc/edit#slide=id.g13d0e349435_0_431)
 
 
 
