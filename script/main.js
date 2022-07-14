@@ -31,7 +31,7 @@ const startGame = () => {
     splashScreen.style.display = "none"
     gameoverScreenDOM.style.display = "none";
     canvas.style.display = "block"
-    gameScreen.style.display = "block"
+    gameScreen.style.display = "flex"
     scoreDom.innerHTML = 0
     lifeDom.innerHTML = 2
 

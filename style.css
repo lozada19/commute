@@ -7,18 +7,15 @@ body {
     background-color: darkgray;
   }
 
-  #splash-screen, #gameover-screen {
+  #splash-screen, #gameover-screen, #game-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 80px;
   }
 
-  #game-screen, #gameover-screen {
-    display: none 
-    
-  }
-
+ 
   #insructions {
     color: white;
     text-align: center;
@@ -41,14 +38,6 @@ body {
     padding-right: 30px;
   }
 
-
-  #game-screen {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   #restart {
     background-color: black;
     color: white;
@@ -59,28 +48,31 @@ body {
     
   } 
 
- /* #score-life {
+ #score-life {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    width: 400px;
     background-color: white;
     color: black
     
 
-  }*/
+  }
   #score {
     background-color: white;
     color: black;
     font-weight: 900;
-    font-family: Georgia, 'Times New Roman', Times, serif; 
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
   #life {
+    
     background-color: white;
     color: black;
     font-weight: 900;
     font-family: Georgia, 'Times New Roman', Times, serif; 
     padding-right: 200;
-    padding-left: ;
   }
 
   

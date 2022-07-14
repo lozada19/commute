@@ -57,7 +57,6 @@ class Game {
  
  gameOver = () => {
      
-   
      this.isGameOn = false;
      canvas.style.display = "none"
      gameoverScreenDOM.style.display = "flex"
